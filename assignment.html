@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body onload="sort()">
+<script>
+
+var userDetail = [
+    {id:"1",color:"#2B8EAD"},{id:"2",color:"#333333"},{id:"3",color:"#6F98A8"},{id:"5",color:"#BFBFBF"},{id:"4",color:"#2B8EAD"},{id:"6",color:"#EFEFEF"},{id:"7",color:"#2F454E"},{id:"8",color:"#72C3DC"},{id:"9",color:"#000000"},
+]
+
+function sort(){
+const newArr = userDetail.sort(function(a, b){return a.id - b.id}).map(myFunction).join('');
+document.getElementById("cards").innerHTML = newArr;
+}
+
+function myFunction(num) {
+  return `<div style="padding:160px;text-align:center;background-color:`+num.color+`">`+num.id+`</div>`;
+}
+function shuffle(){
+
+let shuffled = userDetail.sort(function (a, b) {return Math.random() - 0.5;}).map(myFunction).join('');
+  
+  document.getElementById("cards").innerHTML = shuffled;
+}
+</script>
+<div style="display:flex; justify-content:space-between;align-item:center;">
+<div id="cards" style="color:white; display:flex; justify-content:center;align-item:center;align-content:center;flex-wrap: wrap;">
+</div>
+<div>
+<button style="width:200px;height:50px;margin-top:40px;background-color:#6F98A8;border:none;border-radius:5px;box-shadow: 2px 3px #2B8EAD;" type="button"
+onclick="shuffle()">
+Shuffle</button>
+<button style="width:200px;height:50px;margin-top:40px;background-color:#6F98A8;border:none;border-radius:5px;box-shadow: 2px 3px #2B8EAD;" type="button"
+onclick="sort()">
+Sort</button>
+</div>
+</div>
+<h2 style="color:#2B8EAD; text-align:center"><em>Shuffle and sort by Swapnali<em></h2>
+</body>
+</html> 
